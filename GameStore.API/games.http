@@ -1,0 +1,57 @@
+### Get All Games
+GET http://localhost:5006/games
+
+### Get Game by Id
+GET http://localhost:5006/games/1
+
+### Get Game by Id, Not Found
+GET http://localhost:5006/games/8
+
+### Create New Game
+POST http://localhost:5006/games
+Content-Type: application/json
+
+{
+  "name": "Forza Horizon 5",
+  "genreId": 4,
+  "price": 19.99,
+  "releaseDate": "2023-05-19"
+}
+
+### Create New Game, Bad Request
+POST http://localhost:5006/games
+Content-Type: application/json
+
+{
+  "name": "Forza Horizon 5 Forza Horizon 5 Forza Horizon 5 Forza Horizon 5 Forza Horizon 5 Forza Horizon 5 Forza Horizon 5 Forza Horizon 5 Forza Horizon 5 Forza Horizon 5",
+  "price": 19.99,
+  "releaseDate": "2023-05-19"
+}
+
+### Update Game by Id
+PUT http://localhost:5006/games/5
+Content-Type: application/json
+
+{
+  "name": "Forza Horizon 4",
+  "genreId": 4,
+  "price": 9.99,
+  "releaseDate": "2023-05-19"
+}
+
+### Update Game by Id, Not Found
+PUT http://localhost:5006/games/7
+Content-Type: application/json
+
+{
+  "name": "Forza Horizon 5",
+  "genre": "Racing",
+  "price": 9.99,
+  "releaseDate": "2023-05-19"
+}
+
+### Delete Game by Id
+DELETE  http://localhost:5006/games/5
+
+### Delete Game by Id, Not Found
+DELETE  http://localhost:5006/games/9

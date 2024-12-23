@@ -1,0 +1,2 @@
+### Get All Genres
+GET http://localhost:5006/genres
