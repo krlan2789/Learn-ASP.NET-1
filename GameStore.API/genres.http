@@ -1,2 +1,5 @@
+@GenresAPI_Host = http://localhost:5006/genres
+
+
 ### Get All Genres
-GET http://localhost:5006/genres
+GET {{GenresAPI_Host}}

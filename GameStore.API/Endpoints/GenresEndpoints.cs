@@ -1,4 +1,5 @@
 using GameStore.API.Data;
+using GameStore.API.Mapping;
 using Microsoft.EntityFrameworkCore;
 
 namespace GameStore.API.Endpoints;
