@@ -1,0 +1,7 @@
+@docs_Host = http://localhost:5006/docs
+
+### OpenAPI API References
+GET {{docs_Host}}/v1/openapi.json
+
+### Scalar Documentation
+GET {{docs_Host}}/v1
