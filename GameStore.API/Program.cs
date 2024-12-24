@@ -23,8 +23,10 @@ if (app.Environment.IsDevelopment())
         string scalarApiRoute = "/docs/{documentName}";
         options
             .WithTitle("Game Store - REST API")
+            .WithTheme(ScalarTheme.BluePlanet)
             .WithEndpointPrefix(scalarApiRoute)
-            .WithOpenApiRoutePattern(openApiRoute);
+            .WithOpenApiRoutePattern(openApiRoute)
+            ;
     });
 }
 
