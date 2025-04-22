@@ -9,6 +9,16 @@ public static class DataExtensions
         using var scope = app.Services.CreateScope();
         var services = scope.ServiceProvider;
         var dbContext = services.GetRequiredService<GameStoreContext>();
-        await dbContext.Database.MigrateAsync();
+        try
+        {
+            var logger = services.GetRequiredService<ILogger<GameStoreContext>>();
+            logger.LogInformation("Applying database migrations...");
+            await dbContext.Database.MigrateAsync();
+            logger.LogInformation("Database migration completed successfully!");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Database migration failed: {ex.Message}");
+        }
     }
 }

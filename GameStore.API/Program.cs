@@ -5,7 +5,7 @@ using Scalar.AspNetCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add Database Context services
-var connString = builder.Configuration.GetConnectionString("GameStore");
+var connString = Environment.GetEnvironmentVariable("ConnectionStrings__GameStore") ?? builder.Configuration.GetConnectionString("GameStore");
 builder.Services.AddSqlite<GameStoreContext>(connString);
 
 // Adds OpenAPI services
