@@ -13,22 +13,22 @@ builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-if (app.Environment.IsDevelopment())
+// if (app.Environment.IsDevelopment())
+// {
+// }
+string openApiRoute = "/docs/{documentName}/openapi.json";
+// Register the endpoint for viewing the OpenAPI
+app.MapOpenApi(openApiRoute);
+app.MapScalarApiReference(options =>
 {
-    string openApiRoute = "/docs/{documentName}/openapi.json";
-    // Register the endpoint for viewing the OpenAPI
-    app.MapOpenApi(openApiRoute);
-    app.MapScalarApiReference(options =>
-    {
-        string scalarApiRoute = "/docs/{documentName}";
-        options
-            .WithTitle("Game Store - REST API")
-            .WithTheme(ScalarTheme.BluePlanet)
-            .WithEndpointPrefix(scalarApiRoute)
-            .WithOpenApiRoutePattern(openApiRoute)
-            ;
-    });
-}
+    string scalarApiRoute = "/docs/{documentName}";
+    options
+        .WithTitle("Game Store - REST API")
+        .WithTheme(ScalarTheme.BluePlanet)
+        .WithEndpointPrefix(scalarApiRoute)
+        .WithOpenApiRoutePattern(openApiRoute)
+        ;
+});
 
 // Register all endpoints
 app.MapGamesEndpoints();
